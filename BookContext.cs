@@ -11,16 +11,7 @@ namespace FunctionApp36
         public BookContext(DbContextOptions<BookContext> options) : base(options)
         {
         }
-
-        public BookContext(DbContextOptions options) : base(options)
-        {
-        }
-
-        public BookContext() : base()
-        {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=mydb;Trusted_Connection=True;MultipleActiveResultSets=True");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer("Data Source=ASSET-10422\\SQLEXPRESS;Initial Catalog=BackEndDBTest;Integrated Security=True");
 
     }
 }
