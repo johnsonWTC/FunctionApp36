@@ -8,10 +8,17 @@ namespace FunctionApp36
     class BookContext :DbContext
     {
 
-        public BookContext(DbContextOptions<BookContext> options) : base(options)
+     
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FE05;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        }
+
+        public BookContext(DbContextOptions<BookContext> options)
+           : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer("Data Source=ASSET-10422\\SQLEXPRESS;Initial Catalog=BackEndDBTest;Integrated Security=True");
 
     }
 }
